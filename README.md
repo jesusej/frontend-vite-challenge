@@ -1,69 +1,89 @@
-# React + TypeScript + Vite
+# Frontend Vite Challenge
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+> Invoice management web application built with React + Vite stack.
 
-Currently, two official plugins are available:
+## Table of Contents
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- [Frontend Vite Challenge](#frontend-vite-challenge)
+  - [Table of Contents](#table-of-contents)
+  - [About](#about)
+  - [Objective](#objective)
+  - [Getting Started](#getting-started)
+    - [Prerequisites](#prerequisites)
+    - [Installation](#installation)
+  - [🧹 Linting and Formatting](#-linting-and-formatting)
+  - [Notes and Assumptions](#notes-and-assumptions)
 
-## Expanding the ESLint configuration
+## About
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+This is a challenge for a real-world frontend service using the following tech stack:
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- React + Vite
+- CoreUI Pro
+- Zustand
+- Formik + Yup
+- AG Grid
+- TailwindCSS
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+## Objective
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+Build an Invoicing Module Frontend. The module allows users to view a list of invoices, filter them, and create new ones using a form.
+
+## Getting Started
+
+### Prerequisites
+
+- Node.js (v16 or later recommended)
+- pnpm (recommended), npm, or yarn
+
+### Installation
+
+1. **Clone the repository**
+
+   ```bash
+   git clone https://github.com/your-username/frontend-vite-challenge.git
+   cd frontend-vite-challenge
+   ```
+
+2. **Install dependencies**
+
+   ```bash
+   # Using pnpm (recommended)
+   pnpm install
+
+   # Or using npm
+   npm install
+
+   # Or using yarn
+   yarn install
+   ```
+
+3. **Start the development server**
+
+   ```bash
+   pnpm dev
+   # or
+   npm run dev
+   # or
+   yarn dev
+   ```
+
+   The application will be available at `http://localhost:5173`
+
+4. **Build for production**
+   ```bash
+   pnpm build
+   ```
+   The production build will be in the `dist` directory.
+
+## 🧹 Linting and Formatting
+
+```bash
+# Run ESLint
+pnpm lint
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Notes and Assumptions
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+- The challenge mentioned a Figma design, but I did not receive any design files. Instead, I focused on implementing the functional requirements with future developments in mind.
+- Some of the features mentioned in the challenge are not yet implemented, such as the TailwindCSS configuration, CSV import, and Storybook documentation. These will be implemented in future updates.
