@@ -2,7 +2,7 @@ export interface RawInvoice {
   invoiceNumber: number;
   clientName: string;
   date: string;
-  status: "PAID" | "UNPAID";
+  status: string;
   amount: number;
 }
 

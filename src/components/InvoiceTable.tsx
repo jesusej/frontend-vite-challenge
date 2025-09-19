@@ -1,28 +1,41 @@
 import type { ColDef } from "ag-grid-community";
 import { AgGridReact } from "ag-grid-react";
-
-interface CarData {
-  make: string;
-  model: string;
-  price: number;
-  electric: boolean;
-}
+import type { Invoice, RawInvoice } from "../types/invoices.types";
+import invoices from "../mocks/invoices.json";
+import { useMemo } from "react";
+import currencyFormatter from "../utils/currencyFormatter";
 
 const InvoiceTable = () => {
   // Row Data: The data to be displayed.
-  const rowData: CarData[] = [
-    { make: "Tesla", model: "Model Y", price: 64950, electric: true },
-    { make: "Ford", model: "F-Series", price: 33850, electric: false },
-    { make: "Toyota", model: "Corolla", price: 29600, electric: false },
-  ];
+  const rowData: Invoice[] = invoices.map((invoice: RawInvoice) => {
+    const status = invoice.status === "PAID" ? "PAID" : "UNPAID";
+    return {
+      invoiceNumber: invoice.invoiceNumber,
+      clientName: invoice.clientName,
+      date: new Date(invoice.date),
+      status,
+      amount: invoice.amount,
+    };
+  });
 
   // Column Definitions: Defines the columns to be displayed.
-  const colDefs: ColDef<CarData>[] = [
-    { field: "make" },
-    { field: "model" },
-    { field: "price" },
-    { field: "electric" },
+  const colDefs: ColDef<Invoice>[] = [
+    { field: "invoiceNumber" },
+    { field: "clientName" },
+    { field: "date", filter: "agDateColumnFilter" },
+    { field: "status", filter: true },
+    { field: "amount", type: ["currency", "numericColumn"] },
   ];
+
+  const columnTypes = useMemo(
+    () => ({
+      currency: {
+        width: 150,
+        valueFormatter: currencyFormatter,
+      },
+    }),
+    []
+  );
 
   const defaultColDef: ColDef = {
     flex: 1,
@@ -35,6 +48,7 @@ const InvoiceTable = () => {
         rowData={rowData}
         columnDefs={colDefs}
         defaultColDef={defaultColDef}
+        columnTypes={columnTypes}
       />
     </div>
   );
