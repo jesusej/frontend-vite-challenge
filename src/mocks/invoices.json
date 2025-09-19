@@ -1,0 +1,72 @@
+[
+  {
+    "invoiceNumber": 1001,
+    "clientName": "Acme Corp",
+    "date": "2025-09-15T08:30:00.000Z",
+    "status": "PAID",
+    "amount": 1250.75
+  },
+  {
+    "invoiceNumber": 1002,
+    "clientName": "Globex Corporation",
+    "date": "2025-09-10T14:22:00.000Z",
+    "status": "UNPAID",
+    "amount": 3420.5
+  },
+  {
+    "invoiceNumber": 1003,
+    "clientName": "Soylent Corp",
+    "date": "2025-09-05T11:15:00.000Z",
+    "status": "PAID",
+    "amount": 875.2
+  },
+  {
+    "invoiceNumber": 1004,
+    "clientName": "Initech LLC",
+    "date": "2025-09-01T09:45:00.000Z",
+    "status": "UNPAID",
+    "amount": 2100.0
+  },
+  {
+    "invoiceNumber": 1005,
+    "clientName": "Umbrella Corporation",
+    "date": "2025-08-28T16:30:00.000Z",
+    "status": "PAID",
+    "amount": 5300.25
+  },
+  {
+    "invoiceNumber": 1006,
+    "clientName": "Stark Industries",
+    "date": "2025-08-20T10:20:00.000Z",
+    "status": "PAID",
+    "amount": 12450.0
+  },
+  {
+    "invoiceNumber": 1007,
+    "clientName": "Wayne Enterprises",
+    "date": "2025-08-15T13:10:00.000Z",
+    "status": "UNPAID",
+    "amount": 8750.8
+  },
+  {
+    "invoiceNumber": 1008,
+    "clientName": "Cyberdyne Systems",
+    "date": "2025-08-10T15:45:00.000Z",
+    "status": "PAID",
+    "amount": 3200.0
+  },
+  {
+    "invoiceNumber": 1009,
+    "clientName": "Oscorp Industries",
+    "date": "2025-08-05T11:30:00.000Z",
+    "status": "UNPAID",
+    "amount": 5400.0
+  },
+  {
+    "invoiceNumber": 1010,
+    "clientName": "Virtucon Corp",
+    "date": "2025-08-01T09:15:00.000Z",
+    "status": "PAID",
+    "amount": 2100.5
+  }
+]

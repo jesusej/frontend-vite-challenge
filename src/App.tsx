@@ -1,7 +1,9 @@
+import InvoiceTable from "./components/InvoiceTable";
+
 function App() {
   return (
     <>
-      <span>Nothing</span>
+      <InvoiceTable />
     </>
   );
 }
