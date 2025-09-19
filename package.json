@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@coreui/coreui-pro": "^5.20.0",
+    "@coreui/react-pro": "^5.22.0",
     "@tailwindcss/vite": "^4.1.13",
     "ag-grid-community": "^34.2.0",
     "ag-grid-react": "^34.2.0",
