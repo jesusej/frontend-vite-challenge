@@ -1,22 +1,16 @@
 import type { ColDef } from "ag-grid-community";
 import { AgGridReact } from "ag-grid-react";
-import type { Invoice, RawInvoice } from "../types/invoices.types";
-import invoices from "../mocks/invoices.json";
-import { useMemo } from "react";
+import type { Invoice } from "../types/invoices.types";
+import useInvoices from "../store/invoices";
+import { useEffect, useMemo } from "react";
 import currencyFormatter from "../utils/currencyFormatter";
 
 const InvoiceTable = () => {
   // Row Data: The data to be displayed.
-  const rowData: Invoice[] = invoices.map((invoice: RawInvoice) => {
-    const status = invoice.status === "PAID" ? "PAID" : "UNPAID";
-    return {
-      invoiceNumber: invoice.invoiceNumber,
-      clientName: invoice.clientName,
-      date: new Date(invoice.date),
-      status,
-      amount: invoice.amount,
-    };
-  });
+  const rowData = useInvoices((store) => store.invoices);
+  const isLoading = useInvoices((store) => store.isLoading);
+  const error = useInvoices((store) => store.error);
+  const loadInvoices = useInvoices((store) => store.loadInvoices);
 
   // Column Definitions: Defines the columns to be displayed.
   const colDefs: ColDef<Invoice>[] = [
@@ -40,6 +34,13 @@ const InvoiceTable = () => {
   const defaultColDef: ColDef = {
     flex: 1,
   };
+
+  useEffect(() => {
+    loadInvoices();
+  }, [loadInvoices]);
+
+  if (isLoading) return <div>Loading invoices...</div>;
+  if (error) return <div>Error: {error}</div>;
 
   return (
     // Data Grid will fill the size of the parent container
