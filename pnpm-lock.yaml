@@ -11,6 +11,9 @@ importers:
       '@coreui/coreui-pro':
         specifier: ^5.20.0
         version: 5.20.0(@popperjs/core@2.11.8)
+      '@coreui/react-pro':
+        specifier: ^5.22.0
+        version: 5.22.0(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
       '@tailwindcss/vite':
         specifier: ^4.1.13
         version: 4.1.13(vite@7.1.5(jiti@2.5.1)(lightningcss@1.30.1)(sass@1.92.1))
@@ -79,6 +82,12 @@ packages:
     resolution: {integrity: sha512-y2y1rg3spsaYVUMU/94Ag0oVCpgGghjba72+JDGzeByq8jxsOrrsjkES4Jy/NoXZhXmevlkZR1f2hhe8Dpc6XQ==}
     peerDependencies:
       '@popperjs/core': ^2.11.8
+
+  '@coreui/react-pro@5.22.0':
+    resolution: {integrity: sha512-4RBPK0aipCjjdp7OSeCBPp1tNsR5x47UXFPqCnPW4zUe4qnNEowhPSPb+4ZS93qh/WiRzHp73sAKOs+dpO3Ofg==}
+    peerDependencies:
+      react: '>=17'
+      react-dom: '>=17'
 
   '@esbuild/aix-ppc64@0.25.10':
     resolution: {integrity: sha512-0NFWnA+7l41irNuaSVlLfgNT12caWJVLzp5eAVhZ0z1qpxbockccEt3s+149rE64VUI3Ml2zt8Nv5JVc4QXTsw==}
@@ -1483,6 +1492,14 @@ snapshots:
       html-entities: 2.6.0
       html-to-md: 0.8.8
       sass: 1.92.1
+
+  '@coreui/react-pro@5.22.0(react-dom@19.1.1(react@19.1.1))(react@19.1.1)':
+    dependencies:
+      '@coreui/coreui-pro': 5.20.0(@popperjs/core@2.11.8)
+      '@popperjs/core': 2.11.8
+      prop-types: 15.8.1
+      react: 19.1.1
+      react-dom: 19.1.1(react@19.1.1)
 
   '@esbuild/aix-ppc64@0.25.10':
     optional: true
