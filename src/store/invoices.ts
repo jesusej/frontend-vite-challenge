@@ -18,7 +18,11 @@ const useInvoices = create<InvoicesStore>((set) => ({
     set((state) => ({
       invoices: [
         ...state.invoices,
-        { ...newInvoice, invoiceNumber: state.invoices.length + 1001 },
+        {
+          ...newInvoice,
+          invoiceNumber: state.invoices.length + 1001,
+          date: new Date(newInvoice.date),
+        },
       ],
     })),
   loadInvoices: async () => {
