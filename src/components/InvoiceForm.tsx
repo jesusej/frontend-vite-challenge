@@ -37,7 +37,7 @@ const InvoiceForm = () => {
     <>
       <CButton
         color="primary"
-        className="flex flex-1 flex-wrap h-10"
+        className="flex h-10 flex-1 flex-wrap"
         onClick={() => setVisible(true)}
       >
         Add new invoice

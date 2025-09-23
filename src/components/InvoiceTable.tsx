@@ -44,7 +44,7 @@ const InvoiceTable = () => {
 
   return (
     // Data Grid will fill the size of the parent container
-    <div className="flex-9 h-75">
+    <div className="h-75 flex-9">
       <AgGridReact
         rowData={rowData}
         columnDefs={colDefs}
