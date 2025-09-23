@@ -30,50 +30,57 @@ const InvoiceForm = () => {
     onSubmit: (values: unknown) => {
       addInvoice(values as Invoice);
       setVisible(false);
+      formik.resetForm();
     },
   });
   return (
     <>
-      <CButton onClick={() => setVisible(true)}>Add new invoice</CButton>
+      <CButton
+        color="primary"
+        className="flex h-10 flex-1 flex-wrap"
+        onClick={() => setVisible(true)}
+      >
+        Add new invoice
+      </CButton>
       <CModal visible={visible} onClose={() => setVisible(false)}>
         <CModalHeader>
           <CModalTitle>Add new invoice</CModalTitle>
+        </CModalHeader>
+        <CForm onSubmit={formik.handleSubmit} className="flex flex-col gap-2">
           <CModalBody>
-            <CForm onSubmit={formik.handleSubmit}>
-              <CFormInput
-                label="Client name"
-                {...formik.getFieldProps("clientName")}
-              />
-              <CFormInput
-                label="Date"
-                type="date"
-                {...formik.getFieldProps("date")}
-              />
-              <CFormInput
-                label="Amount"
-                type="number"
-                {...formik.getFieldProps("amount")}
-              />
-              <CFormSelect
-                label="Status"
-                options={[
-                  { label: "Select status" },
-                  { label: "Paid", value: "PAID" },
-                  { label: "Unpaid", value: "UNPAID" },
-                ]}
-                {...formik.getFieldProps("status")}
-              />
-              <CButton color="primary" type="submit">
-                Add invoice
-              </CButton>
-            </CForm>
+            <CFormInput
+              label="Client name"
+              {...formik.getFieldProps("clientName")}
+            />
+            <CFormInput
+              label="Date"
+              type="date"
+              {...formik.getFieldProps("date")}
+            />
+            <CFormInput
+              label="Amount"
+              type="number"
+              {...formik.getFieldProps("amount")}
+            />
+            <CFormSelect
+              label="Status"
+              options={[
+                { label: "Select status" },
+                { label: "Paid", value: "PAID" },
+                { label: "Unpaid", value: "UNPAID" },
+              ]}
+              {...formik.getFieldProps("status")}
+            />
           </CModalBody>
           <CModalFooter>
+            <CButton color="primary" type="submit">
+              Add invoice
+            </CButton>
             <CButton color="secondary" onClick={() => setVisible(false)}>
               Close
             </CButton>
           </CModalFooter>
-        </CModalHeader>
+        </CForm>
       </CModal>
     </>
   );

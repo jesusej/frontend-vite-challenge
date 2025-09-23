@@ -28,7 +28,7 @@ const InvoiceTable = () => {
         valueFormatter: currencyFormatter,
       },
     }),
-    []
+    [],
   );
 
   const defaultColDef: ColDef = {
@@ -44,7 +44,7 @@ const InvoiceTable = () => {
 
   return (
     // Data Grid will fill the size of the parent container
-    <div style={{ width: "100%", height: "100%" }}>
+    <div className="h-75 flex-9">
       <AgGridReact
         rowData={rowData}
         columnDefs={colDefs}
