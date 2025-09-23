@@ -15,6 +15,14 @@ import schema from "../schema/invoice.schema";
 import useInvoices from "../store/invoices";
 import type { Invoice } from "../types/invoices.types";
 
+/**
+ * Component that allows users to create new invoices.
+ * It's called from a button and then it shows a modal with a form.
+ * It uses Formik + Yup for form handling.
+ * Saves the result in Zustand store.
+ *
+ * @returns {JSX.Element} A Button that opens a modal with the form.
+ */
 const InvoiceForm = () => {
   const [visible, setVisible] = useState(false);
   const addInvoice = useInvoices((store) => store.addInvoice);
